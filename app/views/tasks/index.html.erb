@@ -1,11 +1,39 @@
-<h1>hey</h1>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" href="#">Sample</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
 
-<% @tasks.each do |task| %>
-    <div>
-        <%= task.content %>
-        <%= link_to "edit", edit_task_path(task) %>
-        <%= link_to "delete", task, method: :delete, data: {confirm: "are you sure?"}%>
-    </div>
-<%end%>
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="#">
+            <img src="https://img.icons8.com/material-sharp/24/000000/home.png"/>
+        </a>
+      </li>
+      <li class="nav-item">
+        <%= link_to "new", new_task_path, class: "nav-link" %>
+      </li>
+  </div>
+</nav>
 
-<%= link_to "new", new_task_path %>
+<div class="container">
+    <table class="table table-striped">
+        <thead>
+            <tr>
+            <th scope="col">Content</th>
+            <th scope="col">Action</th>
+            <th scope="col">Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% @tasks.each do |task| %>
+                <tr>
+                    <td><%= task.content %></td>
+                    <td><%= link_to image_tag("https://img.icons8.com/metro/26/000000/edit.png"), edit_task_path(task) %></td>
+                    <td><%= link_to image_tag("https://img.icons8.com/material-rounded/26/000000/trash.png"), task, method: :delete, data: {confirm: "are you sure?"}%></td>
+                </tr>
+            <%end%>
+        </tbody>
+    </table>
+</div>
