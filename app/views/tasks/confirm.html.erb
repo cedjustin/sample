@@ -1,0 +1,6 @@
+<%= form_with(model: @task, local: true, url:tasks_path) do |form|%>
+    <%= form.label :content %>
+    <%= @task.content %>
+    <%= form.hidden_field :content %>
+    <%= form.submit "confirm" %>
+<%end%>
