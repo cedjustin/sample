@@ -65,4 +65,4 @@ gem 'spring-commands-rspec'
 gem 'factory_bot_rails'
 gem 'faker'
 gem 'database_cleaner'
-gem "launchy"
+gem 'webdrivers'
